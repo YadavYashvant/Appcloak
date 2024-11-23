@@ -1,6 +1,7 @@
 package com.yashvant.appcloak.ui.screens
 
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
@@ -18,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppScreen() {
+fun AppScreen(modifier: Modifier, context: Context) {
     var websiteUrl by remember { mutableStateOf("") }
     var appName by remember { mutableStateOf("") }
 
@@ -41,7 +42,7 @@ fun AppScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = "Enter App Name", style = MaterialTheme.typography.h6)
+        Text(text = "Enter App Name", style = MaterialTheme.typography.headlineMedium)
         BasicTextField(
             value = appName,
             onValueChange = { appName = it },
@@ -65,9 +66,9 @@ fun AppScreen() {
                         putExtra("URL", websiteUrl)
                         putExtra("APP_NAME", appName)
                     }
-                    it.context.startActivity(intent)
+                    context.startActivity(intent)
                 } else {
-                    Toast.makeText(it.context, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
                 }
             },
             modifier = Modifier.align(Alignment.End)
