@@ -60,8 +60,8 @@ fun AppScreen(modifier: Modifier, context: Context) {
                     // Start WebViewActivity
                     val intent = Intent().apply {
                         setClassName(
-                            "com.example.dynamicwebviewapp",
-                            "com.example.dynamicwebviewapp.WebViewActivity"
+                            "com.example.appcloak",
+                            "com.example.appcloak.WebViewActivity"
                         )
                         putExtra("URL", websiteUrl)
                         putExtra("APP_NAME", appName)
