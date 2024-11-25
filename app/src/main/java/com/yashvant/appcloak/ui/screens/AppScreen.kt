@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -57,7 +56,7 @@ fun AppScreen(modifier: Modifier, context: Context) {
         Button(
             onClick = {
                 if (websiteUrl.isNotBlank() && appName.isNotBlank()) {
-                    // Start WebViewActivity
+                    // This is temporary, we will replace this with the actual implementation
                     val intent = Intent().apply {
                         setClassName(
                             "com.example.appcloak",
