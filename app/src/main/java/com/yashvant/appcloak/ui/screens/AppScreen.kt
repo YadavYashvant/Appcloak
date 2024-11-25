@@ -67,7 +67,7 @@ fun AppScreen(modifier: Modifier, context: Context) {
                     }
                     context.startActivity(intent)
                 } else {
-                    Toast.makeText(context, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Fields cannot be empty! Please fill remaining fields", Toast.LENGTH_SHORT).show()
                 }
             },
             modifier = Modifier.align(Alignment.End)
