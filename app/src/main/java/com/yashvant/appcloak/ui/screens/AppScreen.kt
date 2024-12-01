@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.yashvant.appcloak.WebViewActivity
 
 @Composable
 fun AppScreen(modifier: Modifier, context: Context) {
@@ -30,6 +31,7 @@ fun AppScreen(modifier: Modifier, context: Context) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "Enter Website URL", style = MaterialTheme.typography.headlineMedium)
+
         BasicTextField(
             value = websiteUrl,
             onValueChange = { websiteUrl = it },
@@ -56,12 +58,7 @@ fun AppScreen(modifier: Modifier, context: Context) {
         Button(
             onClick = {
                 if (websiteUrl.isNotBlank() && appName.isNotBlank()) {
-                    // This is temporary, we will replace this with the actual implementation
-                    val intent = Intent().apply {
-                        setClassName(
-                            "com.example.appcloak",
-                            "com.example.appcloak.WebViewActivity"
-                        )
+                    val intent = Intent(context, WebViewActivity::class.java).apply {
                         putExtra("URL", websiteUrl)
                         putExtra("APP_NAME", appName)
                     }
